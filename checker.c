@@ -8,11 +8,13 @@
 
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
-  return AreTemperatureInRange(temperature);
-  return AreChargeRateInRange(chargeRate);
-  return AreSOCInRange(soc);
- 
- return 1;
+  if(AreTemperatureInRange(temperature) && AreChargeRateInRange(chargeRate) && AreSOCInRange(soc))
+  {
+    return 0;
+  }
+  else{ 
+return 1;
+  }
 }
 
 int main() {
