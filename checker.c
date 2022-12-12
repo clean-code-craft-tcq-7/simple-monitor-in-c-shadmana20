@@ -1,24 +1,34 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define AreTemperatureInRange(X) (X < 0 || X > 45) ? 0 : 1
+#define RangeCheck(X,Y,Z) (X<=Y || X>=Z)?0:1
 
-//#define AreSOCInRange(X) (X<20 || X>80) ? 0 : 1
+int Check_ChargeRate(float chargeRate);
 
-//#define AreChargeRateInRange(X) (X > 0.8 )? 0 : 1
-
-#define AreChargeRateAndSOCInRange(X,Y) ((X<20 || X>80) ? 0 : (Y > 0.8 ) ? 0 :1)
-
-int batteryIsOk(float temperature, float soc, float chargeRate) {
-  if(AreTemperatureInRange(temperature) && AreChargeRateAndSOCInRange(soc,chargeRate))
-  {
-    return 0;
-  }
- return 1;
-  
+int batteryIsOk(float temperature, float soc, float chargeRate)
+{
+  int batterystate = 1;
+  batterystate =  RangeCheck(temperature,0 , 45);
+  batterystate &= RangeCheck(soc,20, 80);
+  batterystate &= Check_ChargeRate(chargeRate);
+  return batterystate;
 }
 
-int main() {
+int Check_ChargeRate(float chargeRate)
+{
+   if(chargeRate>0.8)
+   return 0;
+   else
+   return 1;
+}
+
+
+int main()
+{
+ 
   assert(batteryIsOk(25, 70, 0.7));
   assert(!batteryIsOk(50, 85, 0));
+
 }
+
+
