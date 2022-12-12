@@ -8,9 +8,9 @@
 
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
-  AreTemperatureInRange(temperature);
-  AreChargeRateInRange(chargeRate);
-  AreSOCInRange(soc);
+  return AreTemperatureInRange(temperature);
+  return AreChargeRateInRange(chargeRate);
+  return AreSOCInRange(soc);
  
  return 1;
 }
