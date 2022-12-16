@@ -1,3 +1,5 @@
+#ifndef BATTERY_HEALTH_MONITORING_H
+#define BATTERY_HEALTH_MONITORING_H
 #include <stdio.h>
 
 
@@ -36,7 +38,7 @@ void ConvertLanguageIndex (LanguageUsed Language);
 WarningRanges BatteryHelathMonitor(int soc);
 
 
-
+#endif
 
 
 
