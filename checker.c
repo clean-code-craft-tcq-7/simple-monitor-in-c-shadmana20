@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "BatteryHealthMonitoring.h"
+const char* WarningMessageToDisplay[RANGE_MAX] = {};
 
 
 
