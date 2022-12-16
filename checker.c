@@ -39,6 +39,10 @@ int main()
   assert(!batteryIsOk(46, 81, 0.8));
   assert(batteryIsOk(44, 79, 0.7));
   assert(!batteryIsOk(0, 0, 0.7));
+  CopyLanguageIndex(DEFAULT);
+  assert(WarningMessageToDisplay[(BatteryHelathMonitor(23))] == "LOW_SOC_WARNING");
+  CopyLanguageIndex(GERMAN);
+  assert(WarningMessageToDisplay[(BatteryHelathMonitor(77))] == "HIGH_SOC_WARNUNG");
 
 }
 
