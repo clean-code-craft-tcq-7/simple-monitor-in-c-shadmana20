@@ -5,7 +5,7 @@ const char* WarningMessageDE[RANGE_MAX] = {"LOW_SOC_BREACH","LOW_SOC_WARNUNG","S
 const char* WarningMessageCN[RANGE_MAX] = {"L_S_BREACHEN","L_S_WARN!!","NORMAL","H_S_WARN!!","H_S_BREACHEN","UNDEFINED"};
 const char* WarningMessageToDisplay[RANGE_MAX] = {};
 
-void CopyLanguageIndex(LanguageUsed Language)
+void ConvertLanguageIndex (LanguageUsed Language)
 {
     for(int i =0;i<RANGE_MAX;i++)
         {
