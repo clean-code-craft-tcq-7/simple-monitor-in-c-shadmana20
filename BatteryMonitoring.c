@@ -1,4 +1,4 @@
-#include "BatterHelathMonitoring.h"
+#include "BatteryHealthMonitoring.h"
 
 void CopyLanguageIndex(LanguageUsed Language)
 {
