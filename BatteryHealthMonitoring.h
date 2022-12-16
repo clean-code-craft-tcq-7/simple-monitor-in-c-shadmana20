@@ -28,7 +28,7 @@ typedef enum {
 void MonitorHealthWithTolerance(int tolerance , int MinThreshold, int MaxThrshold , int* DrainRange , int* PeakRange);
 void ConvertLanguageIndex (LanguageUsed Language);
 WarningRanges BatteryHelathMonitor(int soc);
-const char* WarningMessageToDisplay[RANGE_MAX] = {};
+
 
 
 
