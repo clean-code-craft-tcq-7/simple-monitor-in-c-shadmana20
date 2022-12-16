@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include "BatteryHealthMonitoring.h"
 
 #define RangeCheck(X,Y,Z) (X<=Y || X>=Z)?0:1
 #define MinRangeTemperature 0
