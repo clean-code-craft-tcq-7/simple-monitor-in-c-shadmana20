@@ -80,7 +80,8 @@ int Check_ChargeRate(float chargeRate)
 
 int main()
 {
-    int* a = 0 ,int* b = 0;
+    int* a = 0;
+    int* b = 0;
  
   assert(batteryIsOk(25, 70, 0.7));
   assert(!batteryIsOk(50, 85, 0));
