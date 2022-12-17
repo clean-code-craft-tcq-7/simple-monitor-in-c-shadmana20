@@ -92,7 +92,7 @@ int main()
   assert(WarningMessageToDisplay[(BatteryHelathMonitor(13))] == "LOW_SOC_BREACH");
   ConvertLanguageIndex(GERMAN);
   assert(WarningMessageToDisplay[(BatteryHelathMonitor(77))] == "HIGH_SOC_WARNUNG");
-  printf("%s --> " ,WarningMessageWithTolerance[CreateWarning(77,5,MinRangeSOC,MaxRangeSOC,a,b)]);   
+  printf("%s --> " ,WarningMessageWithTolerance[CreateWarning(23,5,MinRangeSOC,MaxRangeSOC,a,b)]);   
 
 }
 
