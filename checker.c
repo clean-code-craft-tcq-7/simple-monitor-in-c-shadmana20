@@ -13,7 +13,7 @@
 #define ChargeRateThreshold 0.8
 
 int Check_ChargeRate(float chargeRate);
-extern char* WarningMessageToDisplay[RANGE_MAX];
+//extern char* WarningMessageToDisplay[RANGE_MAX];
 
 int batteryIsOk(float temperature, float soc, float chargeRate)
 {
