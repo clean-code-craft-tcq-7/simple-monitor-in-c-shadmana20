@@ -6,6 +6,7 @@
 
 
 #define RangeCheck(X,Y,Z) (X<=Y || X>=Z)?0:1
+#define Tolerance 5
 #define MinRangeTemperature 0
 #define MaxRangeTemperature 45
 #define MinRangeSOC 20
@@ -16,6 +17,7 @@ char* WarningMessageToDisplay[RANGE_MAX];
 const  char* WarningMessageEN[RANGE_MAX] = {"LOW_SOC_BREACH","LOW_SOC_WARNING","SOC_NORMAL","HIGH_SOC_WARNING","HIGH_SOC_BREACH","SOC_UNDEFINED"};
 const  char* WarningMessageDE[RANGE_MAX] = {"LOW_SOC_BREACH","LOW_SOC_WARNUNG","SOC_NORMAL","HIGH_SOC_WARNUNG","HIGH_SOC_BREACH","SOC_UNDEFINED"};
 const  char* WarningMessageCN[RANGE_MAX] = {"L_S_BREACHEN","L_S_WARN!!","NORMAL","H_S_WARN!!","H_S_BREACHEN","UNDEFINED"};
+const  char* WarningMessageWithTolerance[Warning_max] = {"Approaching_discharge"," Approaching_charge_peak"};
 
 void ConvertLanguageIndex (LanguageUsed Language)
 {       
@@ -40,6 +42,19 @@ void ConvertLanguageIndex (LanguageUsed Language)
     
 }
 
+WarningWithTolerance CreateWarning(int input , int tolerance ,int MinThreshold , int MaxThreshold , int *DrainRange , int *PeakRange)
+{    int a =0,b=0;
+     MonitorHealthWithTolerance(Tolerance ,MinThreshold , MaxThreshold , &a ,&b);
+    if(input>= MinThreshold && input <=a)
+    {
+        return Approaching_Discharge;
+    }
+ 
+    if( input>= b && input <=MaxThreshold)
+    {
+        return Approaching_Peak;
+    }
+}
 
 int Check_ChargeRate(float chargeRate);
 
@@ -62,8 +77,10 @@ int Check_ChargeRate(float chargeRate)
 }
 
 
+
 int main()
 {
+    int* a = 0 ,int* b = 0;
  
   assert(batteryIsOk(25, 70, 0.7));
   assert(!batteryIsOk(50, 85, 0));
@@ -74,6 +91,7 @@ int main()
   assert(WarningMessageToDisplay[(BatteryHelathMonitor(13))] == "LOW_SOC_BREACH");
   ConvertLanguageIndex(GERMAN);
   assert(WarningMessageToDisplay[(BatteryHelathMonitor(77))] == "HIGH_SOC_WARNUNG");
+  printf("%s --> " ,WarningMessageWithTolerance[CreateWarning(77,5,MinRangeSOC,MaxRangeSOC,a,b)]);   
 
 }
 
