@@ -92,7 +92,10 @@ int main()
   assert(WarningMessageToDisplay[(BatteryHelathMonitor(13))] == "LOW_SOC_BREACH");
   ConvertLanguageIndex(GERMAN);
   assert(WarningMessageToDisplay[(BatteryHelathMonitor(77))] == "HIGH_SOC_WARNUNG");
-  printf("%s --> " ,WarningMessageWithTolerance[CreateWarning(23,5,MinRangeSOC,MaxRangeSOC,a,b)]);   
+  assert(WarningMessageWithTolerance[CreateWarning(23,Tolerance,MinRangeSOC,MaxRangeSOC,a,b)] == "Approaching_discharge"); 
+  assert(WarningMessageWithTolerance[CreateWarning(77,Tolerance,MinRangeSOC,MaxRangeSOC,a,b)] == "Approaching_charge_peak");
+  assert(WarningMessageWithTolerance[CreateWarning(1,Tolerance,MinRangeTemperature,MaxRangeTemperature,a,b)] == "Approaching_discharge");  /* 5% of 45 is 2 , [0-2],[43-45] */
+  assert(WarningMessageWithTolerance[CreateWarning(44,Tolerance,MinRangeTemperature,MaxRangeTemperature,a,b)] == "Approaching_charge_peak");
 
 }
 
