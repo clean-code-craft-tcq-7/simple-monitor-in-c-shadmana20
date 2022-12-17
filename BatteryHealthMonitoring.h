@@ -23,7 +23,8 @@ typedef enum {
 
 typedef enum {
     Approaching_Discharge,
-    Approaching_Peak
+    Approaching_Peak,
+    Warning_max
 } WarningWithTolerance;
 
 
