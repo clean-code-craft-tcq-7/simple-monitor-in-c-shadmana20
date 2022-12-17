@@ -19,22 +19,22 @@ const  char* WarningMessageCN[RANGE_MAX] = {"L_S_BREACHEN","L_S_WARN!!","NORMAL"
 
 void ConvertLanguageIndex (LanguageUsed Language)
 {       
-    char* LocalVariable[RANGE_MAX];
+    
     
     for(int i =0;i<RANGE_MAX;i++)
         {
             if( Language <GERMAN){
-            LocalVariable[i] = WarningMessageEN[i];
+            WarningMessageToDisplay[i] = WarningMessageEN[i];
             }
             else if (Language == GERMAN)
             {
-            LocalVariable[i] = WarningMessageDE[i];   
+            WarningMessageToDisplay[i] = WarningMessageDE[i];   
             }
             else{
-            LocalVariable[i] = WarningMessageCN[i];
+            WarningMessageToDisplay[i] = WarningMessageCN[i];
             }
         
-          WarningMessageToDisplay[i] = LocalVariable[i];
+         
         }
     
     
