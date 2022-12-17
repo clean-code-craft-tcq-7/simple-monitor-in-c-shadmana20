@@ -8,18 +8,23 @@ const  char* WarningMessageDE[RANGE_MAX] = {"LOW_SOC_BREACH","LOW_SOC_WARNUNG","
 const  char* WarningMessageCN[RANGE_MAX] = {"L_S_BREACHEN","L_S_WARN!!","NORMAL","H_S_WARN!!","H_S_BREACHEN","UNDEFINED"};
 
 void ConvertLanguageIndex (LanguageUsed Language)
-{
+{       
+    char* LocalVariable[RANGE_MAX];
+    
     for(int i =0;i<RANGE_MAX;i++)
         {
             if( Language <GERMAN){
-            WarningMessageToDisplay[i] = WarningMessageEN[i];
+            LocalVariable[i] = WarningMessageEN[i];
             }
             else if (Language == GERMAN)
             {
-            WarningMessageToDisplay[i] = WarningMessageDE[i];   
+            LocalVariable[i] = WarningMessageDE[i];   
             }
-            else
-            WarningMessageToDisplay[i] = WarningMessageCN[i];
+            else{
+            LocalVariable[i] = WarningMessageCN[i];
+            }
+        
+          WarningMessageToDisplay[i] = LocalVariable[i];
         }
     
     
