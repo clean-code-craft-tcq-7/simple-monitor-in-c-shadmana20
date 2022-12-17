@@ -1,6 +1,8 @@
 
 #include "BatteryHealthMonitoring.h"
 
+#define RangeChecker(X,Y,Z) ( X>=Y && X <=Z) ? 1 : 0
+
 
 //char* WarningMessageToDisplay[RANGE_MAX];
 
@@ -17,18 +19,33 @@ void MonitorHealthWithTolerance(int tolerance ,int MinThreshold , int MaxThresho
 
 WarningRanges BatteryHelathMonitor(int soc)
 {  
-    
-    if(soc>=0 && soc<=20)
+    switch(soc)
+    {
+    case 0 ... 20:        
+    //if(soc>=0 && soc<=20)
     return LOW_SOC_BREACH;
-    else if(soc>=21 && soc<=24)
+    break;
+    //else if(soc>=21 && soc<=24)
+    case 21 ...24:
     return LOW_SOC_WARNING;
-    else if(soc>=25 && soc<=75)
+    break;
+    case 25 ... 75:        
+   // else if(soc>=25 && soc<=75)
     return SOC_NORMAL; 
-    else if(soc>=76 && soc<=80)
+    break;
+    //else if(soc>=76 && soc<=80)
+    case 76 ... 80:        
     return HIGH_SOC_WARNING;
-    else if(soc>=81 && soc<=100)
+    break;
+    //else if(soc>=81 && soc<=100)
+    case 81 ... 100:
     return HIGH_SOC_BREACH;
-    else
+    break;
+    //else
+    default:
     return SOC_UNDEFINED;
+    break;
+            
+    }
 }
 
