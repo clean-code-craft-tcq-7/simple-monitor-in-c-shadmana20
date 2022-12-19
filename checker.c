@@ -23,6 +23,7 @@ const char* WarningMessageTable[MAX_LANG][MESSAGE_MAX] = {
 			"LOW_SOC_BREACH","LOW_SOC_WARNUNG","SOC_NORMAL","HIGH_SOC_WARNUNG","HIGH_SOC_BREACH","SOC_UNDEFINED"},
 		{ /*Language : CHINA */
 			"L_S_BREACHEN","L_S_WARN!!","NORMAL","H_S_WARN!!","H_S_BREACHEN","UNDEFINED"}
+		/* Extend the table as per Requirements  */
 		
 	};
 
