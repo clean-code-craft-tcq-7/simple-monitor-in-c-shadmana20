@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-#include "BatteryManagmentSystem.h"
+#include "BatteryHealthMonitoring.h"
 
 /*Macro to check the minimum and maximum value of given input*/
 #define RangeCheck(Input,MinValue,MaxValue) ((Input<=MinValue || Input>=MaxValue)?0:1)
