@@ -81,8 +81,7 @@ int main()
   assert(PreWarningMessageTable[PreWarningIndicatorMessage(44,TEMPMIN,TEMPMAX)] == "Approaching_charge_peak");
   SelectLanguageandWarnigMessage(CHINA);
   assert(Store_WarningMessage[(BatteryHelathMonitor(23))] == "L_S_WARN!!");
-  SelectLanguageandWarnigMessage(CHINA);
-  assert(Store_WarningMessage[(BatteryHelathMonitor(32))] == "NORMAL");
+ 
 
 
 }
