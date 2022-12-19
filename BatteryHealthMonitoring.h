@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 
@@ -9,7 +8,7 @@ typedef enum {
     HIGH_SOC_WARNING,
     HIGH_SOC_BREACH,
     SOC_UNDEFINED,
-    RANGE_MAX
+    MESSAGE_MAX
 } WarningRanges;
 
 
@@ -17,8 +16,9 @@ typedef enum {
     DEFAULT,
     ENGLISH,
     GERMAN,
-    CHINA
-}LanguageUsed;
+    CHINA,
+	MAX_LANG
+}Select_Language;
 
 
 typedef enum {
@@ -27,15 +27,5 @@ typedef enum {
     Warning_max
 } WarningWithTolerance;
 
-
-
-void MonitorHealthWithTolerance(int tolerance , int MinThreshold, int MaxThrshold , int* DrainRange , int* PeakRange);
-void ConvertLanguageIndex (LanguageUsed Language);
+void SelectLanguageandWarnigMessage(Select_Language Language);
 WarningRanges BatteryHelathMonitor(int soc);
-
-
-
-
-
-
-
