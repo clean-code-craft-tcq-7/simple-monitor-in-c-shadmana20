@@ -14,7 +14,7 @@
 
 const char* Store_WarningMessage[MESSAGE_MAX];
 const char* PreWarningMessageTable[Warning_max] = {"Approaching_discharge","Approaching_charge_peak"};
-const char* WarningMessageTable[MAX_LANG][MESSAGE_MAX] = {
+const char* WarningMessageTable[MAX_LANG][MESSAGE_MAX] = {   /* As This is 2D array please update for new additional language only after MAX_LANG has updated */
 		{/*Language : DEFAULT */
 			"LOW_SOC_BREACH","LOW_SOC_WARNING","SOC_NORMAL","HIGH_SOC_WARNING","HIGH_SOC_BREACH","SOC_UNDEFINED"},
 		{/*Language : ENGLISH */
