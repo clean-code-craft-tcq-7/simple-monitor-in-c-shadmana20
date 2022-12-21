@@ -3,6 +3,11 @@
 
 #define TOLERENCEVALUE 5
 #define RangeChecker(X,Y,Z) (X<=Y && X>=Z)?1:0
+#define BreachMinThd 21
+#define BreachMaxThd 81
+#define WarningMinThd 24
+#define WarningMaxThd 76
+#define WarnBreachBoundary 20
 
 struct 
 {
@@ -55,7 +60,7 @@ WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , in
 
 WarningRanges BatteryHelathMonitor(int soc)
 {  
-    if(RangeChecker(soc, 81, 21) == 1)
+    if(RangeChecker(soc, BreachMaxThd, BreachMinThd) == 1)
 	{
 		return ReturnSocWarning(soc);
 	}
@@ -69,7 +74,7 @@ WarningRanges BatteryHelathMonitor(int soc)
 static WarningRanges ReturnSocBreach(int soc)
 {
 	 
-	if(SocRangeCheck(soc, 20, 81) == 1)
+	if(SocRangeCheck(soc, WarnBreachBoundary, BreachMaxThd) == 1)
 	{
 		return LOW_SOC_BREACH;
 	}
@@ -85,7 +90,7 @@ static WarningRanges ReturnSocWarning(int soc)
 	
 	WarningRanges Returnstaus = SOC_NORMAL;
 	
-	if(SocRangeCheck(soc, 24, 76) == 1)
+	if(SocRangeCheck(soc, WarningMinThd, WarningMaxThd) == 1)
 	{
 		Returnstaus = LOW_SOC_WARNING;
 	}
